@@ -1,0 +1,81 @@
+#title {
+    font-size: 50px;
+    font-weight: bolder;
+    padding-top: 50px;
+    color: rgba(32, 34, 37, 1);
+}
+
+#subtitle {
+    font-size: 25px;
+    padding: 0px;
+    color: rgba(32, 34, 37, 0.9);
+}
+
+.button {
+    background-color: #859dec; 
+    padding: 15px 32px;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    border-radius: 10px;
+}
+
+#join-button {
+    color:white;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar-nav {
+    font-size: 30px;
+    padding-right: 50px;
+    --bs-nav-link-hover-color: #859dec;
+}
+
+.nav-link {
+    color:rgba(32, 34, 37, 1);
+}
+
+#cubingWumpusImg {
+    width: 100px;
+}
+
+main {
+    background-color: #202225;
+    margin-top: 10px;
+}
+
+* {
+    color: white;
+    font-family: 'Rubik';
+}
+
+.review {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 20px;
+    background-color: #2e3338;
+    border-radius: 10px;
+    border-width: 5px;
+    max-width: 700px;
+    position: sticky;
+}
+
+#review1 {
+    text-align: left;
+    float: left;
+}
+
+#review2 {
+    text-align: right;
+    float: right;
+}
+
+#review3 {
+    text-align: left;
+    position: left;
+}
