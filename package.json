@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "build:css": "postcss public/css/tailwind.css -o public/css/styles.css"
-  },
+  },  
   "author": "",
   "license": "ISC",
   "dependencies": {
