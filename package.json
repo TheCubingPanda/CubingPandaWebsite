@@ -5,6 +5,9 @@
   "main": "app.js",
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css"
+  },
   "dependencies": {
     "discord.js": "^14.4.0",
     "dotenv": "^16.0.2",
