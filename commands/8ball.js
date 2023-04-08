@@ -14,6 +14,15 @@ module.exports = {
         if (!await question) return await interaction.reply("No question asked! Try again");
 
         await interaction.channel.sendTyping();
+
+        if (question.includes('jamie')) {
+            return await interaction.reply("*" + question + "*\n🎱 \`" + "My answer is: Jamie is our god." + "\`");
+        }
+
+        if (question.includes('sure') || question.includes("certain")) {
+            return await interaction.reply("*" + question + "*\n🎱 \`" + "Yes I am sure, who are you to challenge me?" + "\`");
+        }
+
         let eightball = [
             'It is certain.',
             'It is decidedly so.',

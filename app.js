@@ -117,6 +117,10 @@ client.on(Events.InteractionCreate, async interaction => {
 	}
 });
 
+// err
+client.on(Events.Error, async err => {
+	console.log('there was err' + err);
+});
 
 // Log in to Discord with your client's token
 client.login(token);
