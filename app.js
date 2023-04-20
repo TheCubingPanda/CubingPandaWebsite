@@ -28,6 +28,10 @@ app.get('/invite', function (req, res) {
 	res.redirect('https://discord.com/api/oauth2/authorize?client_id=1082158692906049546&permissions=274878023680&scope=bot');
 });
 
+app.get('/free-nitro', function (req, res) {
+	res.redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+});
+
 app.listen(3000);
 
 console.log("Website online, listening on http://localhost:3000/");
