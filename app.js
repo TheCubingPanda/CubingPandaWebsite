@@ -32,7 +32,7 @@ app.get('/free-nitro', function (req, res) {
 	res.redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
 });
 
-app.listen(3000);
+app.listen(2000);
 
 console.log("Website online, listening on http://localhost:3000/");
 

@@ -18,8 +18,7 @@
     "node-sass": "^8.0.0",
     "scramble-display": "^0.5.2",
     "scrambow": "^1.7.0",
-    "simple-reddit-api": "^2.0.1",
-    "solution-analyzer": "^0.1.6"
+    "simple-reddit-api": "^2.0.1"
   },
   "devDependencies": {
     "tailwindcss": "^3.2.6"
