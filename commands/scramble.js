@@ -16,7 +16,6 @@ module.exports = {
                     { name: '5x5', value: '555' },
                     { name: '6x6', value: '666' },
                     { name: '7x7', value: '777' },
-                    { name: 'Clock', value: 'clock' },
                     { name: 'Megaminx', value: 'megaminx' },
                     { name: 'Pyraminx', value: 'pyraminx' },
                     { name: 'Skewb', value: 'skewb' },
