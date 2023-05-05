@@ -35,13 +35,13 @@ module.exports = {
             image = null;
         }
 
-        const exampleEmbed = new EmbedBuilder()
+        const embed = new EmbedBuilder()
             .setColor("#67e473")
             .setDescription(`➡️ ${scrambles[0].scramble_string}`)
             .setImage(image)
             .setTimestamp()
             .setFooter({ text: `CubingPanda bot - ${type} scramble`, iconURL: 'https://i.imgur.com/muqwVaG.png' });
 
-        await interaction.reply({ embeds: [exampleEmbed] });
+        await interaction.reply({ embeds: [embed] });
     },
 };
