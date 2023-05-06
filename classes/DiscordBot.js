@@ -20,6 +20,7 @@ class DiscordBot {
             console.log(`Ready! Logged in as ${this.client.user.tag}`);
             await this.startCommands();
             await this.listenCommands();
+            await this.startListenEvents();
         });
         // Log in to Discord
         this.login();
@@ -81,6 +82,20 @@ class DiscordBot {
                 }
             }
         });
+    }
+
+    async startListenEvents() {
+        const eventsPath = './events';
+        const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
+
+        for (const file of eventFiles) {
+            const event = require('../events/' + file);
+            if (event.once) {
+                this.client.once(event.name, (...args) => event.execute(...args, this));
+            } else {
+                this.client.on(event.name, (...args) => event.execute(...args, this));
+            }
+        }
     }
 
     async logToDiscord(text, level = 'info') {
