@@ -1,4 +1,4 @@
-const { Client, Events, GatewayIntentBits, REST, Routes, Collection } = require('discord.js');
+const { Client, Events, GatewayIntentBits, REST, Routes, Collection, EmbedBuilder } = require('discord.js');
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -71,7 +71,7 @@ class DiscordBot {
             }
 
             try {
-                await command.execute(interaction);
+                await command.execute(interaction, this);
             } catch (error) {
                 console.error(error);
                 if (interaction.replied || interaction.deferred) {
@@ -81,6 +81,42 @@ class DiscordBot {
                 }
             }
         });
+    }
+
+    async logToDiscord(text, level = 'info') {
+        const levels = {
+            'error': '❌',
+            'warn': '⚠️',
+            'info': 'ℹ️',
+            'debug': '🔍',
+            'verbose': '📝',
+        };
+        const timestamp = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+        const logChannel = this.client.channels.cache.get('1104211369697480724'); // Replace <channel-id> with the ID of your log channel
+        if (logChannel) {
+            logChannel.send(`\`\`\`${levels[level]} [${timestamp}] ${text}\`\`\``);
+        } else {
+            console.error('Log channel not found!');
+        }
+    }
+
+    async sendEmbedMessage(data) {
+        const embed = new EmbedBuilder()
+            .setDescription(data.description)
+            .setColor('#2b2d31');
+
+        if (typeof data.title === 'string') {
+            embed.setTitle(data.title);
+        } else if (data.title !== undefined) {
+            console.error('Error sending embed message: "title" must be a string primitive.');
+            return;
+        }
+
+        try {
+            await data.interaction.reply({ embeds: [embed] });
+        } catch (error) {
+            console.error('Error sending embed message:', error);
+        }
     }
 
     // Log in to Discord with the provided token
