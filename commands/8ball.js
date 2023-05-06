@@ -56,7 +56,8 @@ module.exports = {
             bot.sendEmbedMessage({
                 interaction: interaction,
                 title: undefined,
-                description: "❔ *" + question + "*\n🎱 \`" + eightball[index] + "\`"
+                description: "❔ *" + question + "*\n🎱 \`" + eightball[index] + "\`",
+                ephemeral: false
             });
         }, 750);
     },

@@ -103,8 +103,11 @@ class DiscordBot {
     async sendEmbedMessage(data) {
         const embed = new EmbedBuilder()
             .setDescription(data.description)
-            .setColor('#2b2d31');
+            .setColor('#2b2d31')
+            .setTimestamp()
+            .setFooter({ text: `CubingPanda bot`, iconURL: 'https://i.imgur.com/muqwVaG.png' });
 
+        // Handling data.title for undefined
         if (typeof data.title === 'string') {
             embed.setTitle(data.title);
         } else if (data.title !== undefined) {
@@ -112,8 +115,17 @@ class DiscordBot {
             return;
         }
 
+        // Handling data.image for undefined
+        if (typeof data.image === 'string') {
+            embed.setImage(data.image);
+        } else if (data.image !== undefined) {
+            console.error('Error sending embed message: "image" must be a string primitive.');
+            return;
+        }
+
         try {
-            await data.interaction.reply({ embeds: [embed] });
+            // Sending message embed
+            await data.interaction.reply({ embeds: [embed], ephemeral: data.ephemeral });
         } catch (error) {
             console.error('Error sending embed message:', error);
         }

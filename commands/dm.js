@@ -19,29 +19,37 @@ module.exports = {
 
         if (interaction.guild.id == "944820398518837258") {
             if (interaction.member.roles.cache.has("967718875359756349")) {
-                await interaction.reply({
-                    content: `Messaging now`,
+                await bot.sendEmbedMessage({
+                    interaction: interaction,
+                    title: undefined,
+                    description: `Messaging now`,
                     ephemeral: true
                 });
 
                 await user.send(message);
 
-                await interaction.followUp({
-                    content: `Hopefully that worked, I sent the message ${interaction.user.id} sent a msg to ${user.id}`,
+                await bot.sendEmbedMessage({
+                    interaction: interaction,
+                    title: undefined,
+                    description: `Hopefully that worked, I sent the message ${interaction.user.id} sent a msg to ${user.id}`,
                     ephemeral: false
-                }) 
+                });
 
             } else {
-                return await interaction.reply({
-                    content: `Sorry, it seems you need the <@&967718875359756349> role to run this command. If this is a mistake, message Jamie.`,
+                return await bot.sendEmbedMessage({
+                    interaction: interaction,
+                    title: undefined,
+                    description: `Sorry, it seems you need the <@&967718875359756349> role to run this command. If this is a mistake, message Jamie.`,
                     ephemeral: true
                 });
             }
         } else {
-            return await interaction.reply({
-                content: `Sorry, this command isn't for you. This is a private testing commmand that I can't be bothered setting to guild-only.`,
+            return await bot.sendEmbedMessage({
+                interaction: interaction,
+                title: undefined,
+                description: `Sorry, this command isn't for you. This is a private testing commmand that I can't be bothered setting to guild-only.`,
                 ephemeral: true
-            })
+            });
         }
     },
 };

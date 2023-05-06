@@ -25,6 +25,12 @@ module.exports = {
         Joined <t:${joinedAt}:R>
         \`${user.id}\``
 
-        await interaction.reply(send, banner?.toString(), avatar?.toString());
+        await bot.sendEmbedMessage({
+            interaction: interaction,
+            title: undefined,
+            description: send,
+            image: avatar?.toString(),
+            ephemeral: false
+        });
     },
 }

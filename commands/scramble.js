@@ -22,7 +22,7 @@ module.exports = {
                     { name: 'Square-1', value: 'square 1' }
                 )),
 
-    async execute(interaction) {
+    async execute(interaction, bot) {
         let type = await interaction.options.getString('type');
 
         var scrambles = new Scrambow().setType(type).get(1);
@@ -32,16 +32,15 @@ module.exports = {
             // number
             image = `http://cube.rider.biz/visualcube.php?fmt=png&size=150&pzl=${type.slice(0, -2)}&alg=x2${scrambles[0].scramble_string.replace(/\s/g, '')}`;
         } else {
-            image = null;
+            image = undefined;
         }
 
-        const embed = new EmbedBuilder()
-            .setColor("#67e473")
-            .setDescription(`➡️ ${scrambles[0].scramble_string}`)
-            .setImage(image)
-            .setTimestamp()
-            .setFooter({ text: `CubingPanda bot - ${type} scramble`, iconURL: 'https://i.imgur.com/muqwVaG.png' });
-
-        await interaction.reply({ embeds: [embed] });
+        await bot.sendEmbedMessage({
+            interaction: interaction,
+            title: undefined,
+            description: `${scrambles[0].scramble_string}`,
+            image: image,
+            ephemeral: false
+        });
     },
 };

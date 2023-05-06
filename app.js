@@ -5,4 +5,3 @@ const website = new Website();
 
 let bot = new DiscordBot();
 bot.start()
-

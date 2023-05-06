@@ -6,7 +6,7 @@ module.exports = {
         .setName('meme')
         .setDescription('Get a cubing meme!'),
 
-    async execute(interaction) {
+    async execute(interaction, bot) {
         try {
             // Fetch a random post from CubingMemes
             Reddit.randomPost({ subreddit: 'cubingmemes', count: 1, is_meme: false, fulldata: false }).then(res => {
@@ -14,8 +14,14 @@ module.exports = {
             
                 console.log(`Title: ${res.posts[0].data.title}`);
                 console.log(`URL: ${res.posts[0].data.url}`);
-    
-                interaction.reply({ content: ":rofl: " + res.posts[0].data.title + res.posts[0].data.url });
+
+                return bot.sendEmbedMessage({
+                    interaction: interaction,
+                    title: undefined,
+                    description: res.posts[0].data.title,
+                    image: res.posts[0].data.url,
+                    ephemeral: false
+                });
             });
 
           } catch (error) {
