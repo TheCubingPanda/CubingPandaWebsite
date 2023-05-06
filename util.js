@@ -14,7 +14,7 @@ function getRandomPromotion() {
 async function sendEmbedMessage(interaction, title, description) {
     const embed = new EmbedBuilder()
         .setTitle(title)
-        .setDescription(description + '\n\n' + getRandomPromotion())
+        .setDescription(description)
         .setColor('#2b2d31');
 
     try {
