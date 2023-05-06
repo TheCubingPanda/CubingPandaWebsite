@@ -8,7 +8,7 @@ module.exports = {
             option.setName('question')
                 .setDescription('Your question for the 8ball')),
 
-    async execute(interaction) {
+    async execute(interaction, bot) {
         const question = await interaction.options.getString('question');
         console.log(question);
         if (!await question) return await interaction.reply("No question asked! Try again");
@@ -53,7 +53,11 @@ module.exports = {
         ];
         let index = (Math.floor(Math.random() * Math.floor(eightball.length)));
         setTimeout(() => {
-            interaction.reply("*" + question + "*\n🎱 \`" + eightball[index] + "\`");
+            bot.sendEmbedMessage({
+                interaction: interaction,
+                title: undefined,
+                description: "❔ *" + question + "*\n🎱 \`" + eightball[index] + "\`"
+            });
         }, 750);
     },
 };

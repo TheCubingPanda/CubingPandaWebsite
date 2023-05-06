@@ -13,7 +13,7 @@ module.exports = {
                 .setDescription('message')
                 .setRequired(true)),
 
-    async execute(interaction) {
+    async execute(interaction, bot) {
         let message = interaction.options.getString('message');
         let user = interaction.options.getUser('user');
 

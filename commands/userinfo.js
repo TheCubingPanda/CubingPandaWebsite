@@ -9,7 +9,7 @@ module.exports = {
                 .setDescription('user')
         ),
 
-    async execute(interaction) {
+    async execute(interaction, bot) {
         let user = await interaction.options.getUser('user');
         let member = interaction.guild.members.cache.get(user.id);
 
