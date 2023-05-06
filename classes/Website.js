@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 
 class Website {
   constructor() {
@@ -41,4 +40,4 @@ class Website {
   }
 }
 
-module.exports = Website;
+module.exports = { Website };
