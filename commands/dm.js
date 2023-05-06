@@ -17,8 +17,6 @@ module.exports = {
         let message = interaction.options.getString('message');
         let user = interaction.options.getUser('user');
 
-        console.log(message, user.id);
-
         if (interaction.guild.id == "944820398518837258") {
             if (interaction.member.roles.cache.has("967718875359756349")) {
                 await interaction.reply({
